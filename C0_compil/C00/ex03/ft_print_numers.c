@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_numers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 18:11:38 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/10 13:49:45 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/09 19:37:04 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/10 14:29:06 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+void	ft_print_numbers(void)
+{
+	char	i;
+
+	i = '0';
+	while (i <= '9')
+	{
+		ft_putchar(i);
+		i++;
+	}
+}
+
+int		main(void)
+{
+	ft_print_numbers();
 }

@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 18:11:38 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/10 13:49:45 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/09 19:47:18 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/10 14:35:56 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
+#include <unistd.h>
+
+void ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+void	ft_is_negative(int n)
+{
+	char	pos;
+	char	neg;
+
+	pos = 'P';
+	neg = 'N';
+	if (n < 0)
+	{
+		ft_putchar(neg);
+	}
+	else
+	{
+		ft_putchar(pos);
+	}
+}
+
+int		main(void)
+{
+	ft_is_negative(555);
+
+	return(0);
 }

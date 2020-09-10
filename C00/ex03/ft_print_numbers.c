@@ -6,20 +6,25 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:37:04 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/09 19:44:44 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:44:33 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_print_numbers(void)
 {
 	char	i;
 
 	i = '0';
-	while (i < '10')
+	while (i <= '9')
 	{
-		write(1, &i, 1);
+		ft_putchar(i);
 		i++;
 	}
 }

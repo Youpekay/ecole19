@@ -6,11 +6,16 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 18:36:40 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/09 19:14:30 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:30:11 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_print_alphabet(void)
 {
@@ -19,7 +24,7 @@ void	ft_print_alphabet(void)
 	car = 'a';
 	while (car <= 'z')
 	{
-		write(1, &car, 1);
+		ft_putchar(car);
 		car++;
 	}
 }

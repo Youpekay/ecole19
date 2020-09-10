@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 20:09:31 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/10 18:04:58 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/10 15:17:42 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-}
-
-void	show_result(char n1, char n2, char n3)
-{
-	ft_putchar(n1);
-	ft_putchar(n2);
-	ft_putchar(n3);
-	if (n1 != '7' || n2 != '8' || n3 != '9')
-	{
-		ft_putchar(',');
-		ft_putchar(' ');
-	}
 }
 
 void	ft_print_comb(void)
@@ -44,7 +32,15 @@ void	ft_print_comb(void)
 			num3 = num2 + 1;
 			while (num3 <= '9')
 			{
-				show_result(num1, num2, num3);
+				ft_putchar(num1);
+				ft_putchar(num2);
+				ft_putchar(num3);
+				if (num1 != '7' || num2 != '8' || num3 != '9')
+				{
+					ft_putchar(',');
+					ft_putchar(' ');
+				}
+
 				num3++;
 			}
 			num2++;
@@ -52,3 +48,10 @@ void	ft_print_comb(void)
 		num1++;
 	}
 }
+
+int		main(void)
+{
+	ft_print_comb();
+	return 0;
+}
+

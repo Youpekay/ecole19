@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 18:11:38 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/10 13:49:45 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/09 18:36:40 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/10 14:00:01 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
+#include <unistd.h>
+
+void 	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+void	ft_print_alphabet(void)
+{
+	char	car;
+
+	car = 'a';
+	while (car <= 'z')
+	{
+		ft_putchar(car);
+		car++;
+	}
+}
+
+int		main(void)
+{
+	ft_print_alphabet();
 }
