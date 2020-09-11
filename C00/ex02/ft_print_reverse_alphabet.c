@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 19:19:22 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/10 14:17:00 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/11 09:07:02 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,4 @@ void	ft_print_reverse_alphabet(void)
 		ft_putchar(car);
 		car--;
 	}
-}
-
-int		main(void)
-{
-	ft_print_reverse_alphabet();
 }
