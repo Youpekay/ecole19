@@ -6,21 +6,18 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 18:26:36 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/11 20:09:15 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/12 17:13:23 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		i++;
 	}
-
-	return i;
+	return (i);
 }
-
-

@@ -6,13 +6,13 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 17:00:28 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/11 18:20:38 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/12 16:38:06 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	 ft_putchr(char c)
+void	ft_putchr(char c)
 {
 	write(1, &c, 1);
 }

@@ -6,14 +6,13 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 15:31:58 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/12 16:17:06 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/12 16:29:53 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-void ft_swap_tab(int *tab, int pos1, int pos2)
+void	ft_swap_tab(int *tab, int pos1, int pos2)
 {
 	int tmp;
 
@@ -29,14 +28,13 @@ void	ft_sort_int_tab(int *tab, int size)
 
 	i = 0;
 	j = 0;
-	while(i < size)
+	while (i < size)
 	{
 		j = 0;
-		while (j < size-1)
+		while (j < size - 1)
 		{
-			if(tab[j] > tab[j+1])
-				ft_swap_tab(tab, j, j+1);
-
+			if (tab[j] > tab[j + 1])
+				ft_swap_tab(tab, j, j + 1);
 			j++;
 		}
 		i++;

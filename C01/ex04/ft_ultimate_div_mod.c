@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 16:52:26 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/11 16:58:41 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/12 16:42:10 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_ultimate_div_mod(int *a, int *b)
 	int mod;
 
 	div = *a / *b;
-	mob = *a % *b;	
+	mob = *a % *b;
 	*a = div;
 	*b = mod;
 }
