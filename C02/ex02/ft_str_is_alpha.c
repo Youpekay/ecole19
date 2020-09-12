@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 20:23:02 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/12 20:34:23 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/12 20:38:56 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/12 21:57:11 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int		ft_str_is_alpha(char *str)
 {
-	int i;
+	int		i;
+	char	curr_c;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		curr_c = str[i];
+		if (!((curr_c >= 'A' && curr_c <= 'Z') || (curr_c >= 'a' && curr_c <= 'z')))
+		{
+			return (0);
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }
