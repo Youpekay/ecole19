@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 20:38:56 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/13 14:34:56 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/13 09:48:32 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/13 09:50:11 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+int		ft_str_is_uppercase(char *str)
 {
-	int		i;
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!((str[i] > 64 && str[i] < 91) ||
-					(str[i] > 96 && str[i] < 123)))
+		if (!(str[i] > 64 && str[i] < 91))
 			return (0);
 		i++;
 	}

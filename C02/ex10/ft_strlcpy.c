@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 20:38:56 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/13 14:34:56 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/13 14:08:49 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/13 15:12:03 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int		i;
+	unsigned int	count;
+	unsigned int	i;
 
+	count = 0;
 	i = 0;
-	while (str[i] != '\0')
+	while (src[count] != '\0')
+		count++;
+	if (size != 0)
 	{
-		if (!((str[i] > 64 && str[i] < 91) ||
-					(str[i] > 96 && str[i] < 123)))
-			return (0);
-		i++;
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (1);
+	return (count);
 }
