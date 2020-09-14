@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 
-int		ft_strcmp(char *s1, char *s2);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
 
 int		main(void)
 {
@@ -10,12 +10,12 @@ int		main(void)
 	int		result1;
 	int		result2;
 
-	a = "Hello";
-	b = "Hello";
+	a = "Bonjour*";
+	b = "Bonjou/";
 	result1 = 0;
 	result2 = 0;
-	result1 = strcmp(a, b);
-	result2 = ft_strcmp(a, b);
+	result1 = strncmp(a, b, 8);
+	result2 = ft_strncmp(a, b, 8);
 	printf("%d", result1);
 	printf(" || %d", result2);
 	return (0);

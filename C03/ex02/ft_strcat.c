@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 09:39:08 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/14 17:05:42 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/14 20:25:05 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/14 21:08:52 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
-	int i;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
+	j = 0;
+	while (dest[i])
 		i++;
-	}
-	return (i);
-}
-
-int		ft_strcmp(char *s1, char *s2)
-{
-	int real_size;
-	int i;
-
-	i = 0;
-	real_size = ft_strlen(s1) >= ft_strlen(s2) ? ft_strlen(s1) : ft_strlen(s2);
-	while (real_size-- > 0)
+	while (src[j])
 	{
-		if (s1[i] > s2[i])
-			return (s1[i] - s2[i]);
-		else if (s1[i] < s2[i])
-			return ((s2[i] - s1[i]) * -1);
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
