@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush03.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jvan-hol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 09:19:29 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/13 19:42:25 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/13 10:08:37 by jvan-hol          #+#    #+#             */
+/*   Updated: 2020/09/13 19:45:03 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@ void	ft_display_char(int a, int b, int x, int y)
 {
 	if (b == 1 || b == y)
 	{
-		if (a == 1)
-			ft_putchar('A');
-		else if (a == x)
-			ft_putchar('C');
+		if (a == 1 || a == x)
+			ft_putchar('o');
 		else
-			ft_putchar('B');
+			ft_putchar('-');
 	}
 	else
 	{
 		if (a == 1 || a == x)
-			ft_putchar('B');
+			ft_putchar('|');
 		else
 			ft_putchar(' ');
 	}
