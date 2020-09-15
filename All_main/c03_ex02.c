@@ -2,16 +2,15 @@
 #include <string.h>
 
 char	*ft_strcat(char *dest, char *src);
-
 int		main(void)
 {
 	char	*str_base;
-	char	dest[100];
-	char	dest2[100];
+	char	dest[8];
+	char	dest2[8];
 	char	*src;
 	int		index;
 
-	str_base = "Tdfg__\n";
+	str_base = "Hello";
 	src = " World";
 	index = 0;
 	while (index < 6)
@@ -20,6 +19,6 @@ int		main(void)
 		dest2[index] = str_base[index];
 		index++;
 	}
-	printf("c  : %s$\n", strcat(dest, src));
+	//printf("c  : %s$\n", strcat(dest, src));
 	printf("ft : %s$\n", ft_strcat(dest2, src));
 }
