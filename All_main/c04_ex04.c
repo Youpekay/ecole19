@@ -1,11 +1,15 @@
-#include <string.h>
 #include <stdio.h>
+#include <limits.h>
 
 void	ft_putnbr_base(int nbr, char *base);
-//int		ft_atoi(char *str);
 
 int		main(void)
 {
-	ft_putnbr_base(234, "0123456789ABCDEF");
-	return (0);
+	ft_putnbr_base(-123456, "helo");
+	printf("\n");
+	fflush(stdout);
+	ft_putnbr_base(INT_MIN, "0123456789");
+	printf("\n");
+	fflush(stdout);
+	ft_putnbr_base(INT_MAX, "0123456789");
 }
