@@ -6,12 +6,11 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 15:33:45 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/17 09:40:43 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/17 10:50:41 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int		ft_strlen(char *str)
 {
@@ -81,9 +80,10 @@ int		ft_atoi_base(char *str, char *base)
 		return (0);
 	while (is_ignored(*str))
 		str++;
-	while (*str == 45)
+	while (*str == 45 || *str == 43)
 	{
-		negative = -negative;
+		if (*str == 43)
+			negative = -negative;
 		str++;
 	}
 	while ((char_index = give_index_base(base, *str)) != -1)

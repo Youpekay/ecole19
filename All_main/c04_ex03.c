@@ -9,7 +9,7 @@ int		main(void)
 	char *str;
 	int result;
 	
-	str = "9 -8816 4 \n\r+-+-1271ab567";
+	str = "   +--++-8164\n\r71ab567";
 	result = ft_atoi(str);
 	printf("%d || ", result);
 	printf("%d", atoi(str));

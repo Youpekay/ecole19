@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 12:53:33 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/16 11:12:32 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/17 08:22:05 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		src++;
 	}
 	*dst = '\0';
-	return (dst_length + (src - src_start));	
+	return (dst_length + (src - src_start));
 }
