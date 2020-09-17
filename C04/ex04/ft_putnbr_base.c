@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 12:28:34 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/17 17:18:38 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:14:06 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_putnbr_base(int nbr, char *base)
 
 	n = nbr;
 	base_size = ft_strlen(base);
-	if (is_base_ok(base))
+	if (is_base_valid(base))
 	{
 		if (nbr < 0)
 		{

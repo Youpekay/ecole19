@@ -6,7 +6,7 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 11:38:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/17 14:52:35 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:21:54 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_iterative_power(int nb, int power)
 	}
 	else if (power == 0)
 		return (1);
-	else 
+	else
 		return (0);
 	return (result);
 }
