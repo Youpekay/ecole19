@@ -6,37 +6,45 @@
 /*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 12:53:33 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/15 18:29:12 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/16 11:12:32 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *str)
+unsigned int	ft_str_length_fast(char *dest)
 {
-	int n;
+	unsigned int	count;
 
-	n = 0;
-	while (str[n])
-		n++;
-	return (n);
+	count = 0;
+	while (dest[count] != '\0')
+		count++;
+	return (count);
 }
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
-	unsigned int j;
+	char			*dst;
+	char			*src_start;
+	unsigned int	dst_length;
+	unsigned int	remaing;
 
-	i = 0;
-	j = 0;
-	while (++i < size && *dest)
-		dest++;
-	if (i == size)
-		return (i + ft_strlen(src));
-	while (src[j])
+	dst = dest;
+	src_start = src;
+	remaing = size;
+	while (remaing-- != 0 && *dst != '\0')
+		dst++;
+	dst_length = dst - dest;
+	remaing = size - dst_length;
+	if (remaing == 0)
+		return (dst_length + ft_str_length_fast(src));
+	while (*src != '\0')
 	{
-		if (j < size - i)
-			*dest++ = src[j];
-		j++;
+		if (remaing > 1)
+		{
+			*dst++ = *src;
+			remaing--;
+		}
+		src++;
 	}
-	*dest = '\0';
-	return (i + j);
+	*dst = '\0';
+	return (dst_length + (src - src_start));	
 }
