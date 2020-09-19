@@ -64,7 +64,7 @@ char	**ft_init_tab()
 			return (0);
 		x = -1;
 		while (++x < 4)
-			tab[y][x] = 1;
+			tab[y][x] = 0;
 	}
 	return (tab);
 }
