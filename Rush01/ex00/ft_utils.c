@@ -1,6 +1,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+extern char **g_tab;
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -49,24 +51,22 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char	**ft_init_tab()
+void	ft_init_tab()
 {
-	char	**tab;
 	int		x;
 	int		y;
 
-	if (!(tab = malloc(4 * sizeof(char*))))
-		return (0);
+	if (!(g_tab = malloc(4 * sizeof(char*))))
+		return ;
 	y = -1;
 	while (++y < 4)
 	{
-		if (!(tab[y] = malloc(4 * sizeof(char))))
-			return (0);
+		if (!(g_tab[y] = malloc(4 * sizeof(char))))
+			return ;
 		x = -1;
 		while (++x < 4)
-			tab[y][x] = 0;
+			g_tab[y][x] =  0;
 	}
-	return (tab);
 }
 
 void	ft_display_tab(char **tab)
@@ -140,4 +140,24 @@ int		ft_is_valid_input(char *str)
         return (1);
     else
         return (0);
+}
+
+void	ft_data_nospace(char *data, char *data_valid)
+{
+	int k;
+	int l;
+
+	k = 0;
+	l = 0;
+	while (data[k] != '\0')
+	{
+		if (k % 2 == 0 && l < 16)
+        {
+            data_valid[l] = data[k];
+            l++;
+        }
+			
+		k++;
+	}
+
 }

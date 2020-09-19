@@ -1,71 +1,79 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(unsigned int nb);
+void	ft_display_tab(char **tab);
+int     ft_is_valid_tab(int x, int y);
 
+extern char **g_tab;
+extern int k;
 
-int     ft_start_calc(char **tab, char *data)
+void     ft_start_calc()
 {
+
     int i;
-    int j;
-
-    char data_valid[16];
-	int k;
-	int l;
-
-	k = 0;
-	l = 0;
-	while (data[k] != '\0')
-	{
-		if (k % 2 == 0 && l < 16)
-        {
-            data_valid[l] = data[k];
-            l++;
-        }
-			
-		k++;
-	}
-
+    int x;
+    int y;
 
     i = 0;
-    while (data_valid[i] != '\0')
+    x = 0;
+    y = 0;
+
+    while (i < 80)
     {
-        if (data_valid[i] == '0' + 4)
+        //ft_display_tab(g_tab);
+        if(g_tab[x][y] >= 5)
         {
-            //ft_putstr("test");
-            j = 0;
-            while (i < 4 && j < 4)
-            {
-                tab[j][i/4] = j + 1;
-                j++;
-            }
+            g_tab[x][y] = 1;
+        }
+        else 
+        {
+            g_tab[x][y] += 1;
+        }
+        
 
-            j = 0;
-            while (i >= 4 && i < 8 && j < 4)
+        if(ft_is_valid_tab(x, y))
+        {
+            if(y < 4)
+                y++; 
+            else
             {
-                tab[j][i/4] = 5 - (j + 1);
-                j++;
+                x++;
+                y = 0;
             }
-
-            j = 0;
-            while (i >= 8 && i < 12 && j < 4)
-            {
                 
-                tab[i/4][j] = j + 1;
-                j++;
-            }
+            ft_display_tab(g_tab);
+        }
+        else
+        {
+            //g_tab[x][y] -= 1;
 
-            j = 0;
-            while (i >= 12 && i < 16 && j < 4)
+            if(g_tab[x][y] >= 5)
             {
-                tab[i/4][j] = 5 - (j + 1);
-                j++;
+                g_tab[x][y] =  1;
+
+                if(y < 4)
+                {
+                    y++;
+                }
+                else
+                {
+                    y = 0;
+                    x++;
+                }
+                    
             }
         }
-        i++;
-    }
-    //if ()
-    //tab[1][3] = 3;
-    //ft_putnbr(tab[2][2]);
 
-    return(1);
+        
+        
+        i++;
+        ft_putstr("\nEssai numero : ");
+        ft_putnbr(i);
+        ft_putchar('\n');
+        
+    }
+    
+    
+
+        
 }

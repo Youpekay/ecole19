@@ -1,31 +1,63 @@
-int     ft_is_valid_tab(char **tab)
+extern char **g_tab;
+
+int     ft_is_valid_tab(int x, int y)
 {
-	int i;
-    int x;
-    int y;
-
-    x = 4;
-    y = 4;
-	if (!tab[y][x])
+	if (!g_tab[x][y])
 		return (0);
-        
-	i = y;
 
-	while (i--)
-		if (tab[y][x] == tab[i][x])
-			return (0);
-	i = y;
-	while (++i < 4)
-		if (tab[y][x] == tab[i][x])
-			return (0);
-	i = x;
-	while (i--)
-		if (tab[y][x] == tab[y][i])
-			return (0);
-	i = x;
-	while (++i < 4)
-		if (tab[y][x] == tab[y][i])
-			return (0);
+	int is_valid;
 
-	return (1);
+	if(g_tab[x][y] != 0)
+		is_valid = 1;
+	else
+		is_valid = 0;
+		
+
+	if(y == 0)
+	{
+		if (g_tab[x][y] == g_tab[x][y+1] || g_tab[x][y] == g_tab[x][y+2] || g_tab[x][y] == g_tab[x][y+3])
+			is_valid = 0;
+	}
+	else if(y == 1)
+	{
+		if (g_tab[x][y] == g_tab[x][y+1] || g_tab[x][y] == g_tab[x][y+2] || g_tab[x][y] == g_tab[x][y-1]) 
+			is_valid = 0;
+	}
+	else if(y == 2)
+	{
+		if (g_tab[x][y] == g_tab[x][y+1] || g_tab[x][y] == g_tab[x][y-1] || g_tab[x][y] == g_tab[x][y-2])
+			is_valid = 0;
+	}
+	else
+	{
+		if (g_tab[x][y] == g_tab[x][y-1] || g_tab[x][y] == g_tab[x][y-2] || g_tab[x][y] == g_tab[x][y-3])
+			is_valid = 0;
+	}
+
+
+
+
+	if(x == 0)
+	{
+		if (g_tab[x][y] == g_tab[x+1][y] || g_tab[x][y] == g_tab[x+2][y] || g_tab[x][y] == g_tab[x+3][y])
+			is_valid = 0;
+	}
+	else if (x == 1)
+	{
+		if (g_tab[x][y] == g_tab[x+1][y] || g_tab[x][y] == g_tab[x+2][y] || g_tab[x][y] == g_tab[x-1][y])
+			is_valid = 0;
+	}
+	else if (x == 2)
+	{
+		if (g_tab[x][y] == g_tab[x+1][y] || g_tab[x][y] == g_tab[x-1][y] || g_tab[x][y] == g_tab[x-2][y])
+			is_valid = 0;
+	}
+	else
+	{
+		if (g_tab[x][y] == g_tab[x-1][y] || g_tab[x][y] == g_tab[x-2][y] || g_tab[x][y] == g_tab[x-3][y])
+			is_valid = 0;
+	}
+	
+
+	return(is_valid);
 }
