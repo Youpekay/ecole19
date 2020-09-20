@@ -4,23 +4,25 @@ void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(unsigned int nb);
 void	ft_display_error(void);
-int		ft_is_valid_input(char *str);
+int		ft_is_valid_input();
 void	ft_init_tab();
 void	ft_display_tab();
 void	ft_kill_tab(char **tab);
 int		ft_is_valid_tab(char **tab);
-void	ft_start_calc();
-void	ft_data_nospace(char *data, char *data_valid);
+int		ft_start_calc();
+void	ft_data_nospace();
 
 extern char **g_tab;
-extern int k;
+extern int count;
+extern int result_found;
+extern char *data;
+extern char *data_valid;
 
 int		main(int argc, char **argv)
 {
-	char	*data;
-	char	*data_valid;
+	
 
-	data_valid = malloc(16 * sizeof(char));
+	result_found = 0;
 	
 
 	if(argc != 2)
@@ -31,19 +33,23 @@ int		main(int argc, char **argv)
 	else
 	{
 		data = argv[1];
-		if (ft_is_valid_input(data))
+		
+		if (ft_is_valid_input())
 		{
-			ft_data_nospace(data, data_valid);
-			ft_putstr("Correct input format\n");
+			if(!(data_valid = malloc(16 * sizeof(char))))
+				return (0);
 
-			 ft_init_tab();
+			ft_data_nospace();
+			ft_putstr("Correct input format\n");
+			//ft_putstr(data_valid);
+			ft_init_tab(g_tab);
 			ft_putstr("Tab initialized\n");
 
-			ft_start_calc();
-				//ft_display_tab(tab);
-			//tab[3][0] = 9;
-			//ft_putnbr(tab[3][0]);
-			
+			count = 0;
+			result_found = ft_start_calc();
+
+			if (result_found)
+				ft_display_tab();
 		}
 		else
 		{

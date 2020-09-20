@@ -1,79 +1,61 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(unsigned int nb);
-void	ft_display_tab(char **tab);
-int     ft_is_valid_tab(int x, int y);
+int     ft_is_valid_tab(int x, int y, int n);
+void	ft_display_tab();
+int     ft_is_match_input();
 
 extern char **g_tab;
-extern int k;
+extern int count;
+extern char *data_valid;
 
-void     ft_start_calc()
+int		ft_start_calc() 
 {
-
     int i;
     int x;
     int y;
 
-    i = 0;
+    int is_solved;
+    
+
     x = 0;
-    y = 0;
-
-    while (i < 80)
+    is_solved = 0;
+    
+    while (x < 4)
     {
-        //ft_display_tab(g_tab);
-        if(g_tab[x][y] >= 5)
+        y = 0;
+        while(y < 4)
         {
-            g_tab[x][y] = 1;
-        }
-        else 
-        {
-            g_tab[x][y] += 1;
-        }
-        
-
-        if(ft_is_valid_tab(x, y))
-        {
-            if(y < 4)
-                y++; 
-            else
+            if (g_tab[x][y] == 0)
             {
-                x++;
-                y = 0;
-            }
-                
-            ft_display_tab(g_tab);
-        }
-        else
-        {
-            //g_tab[x][y] -= 1;
-
-            if(g_tab[x][y] >= 5)
-            {
-                g_tab[x][y] =  1;
-
-                if(y < 4)
+                i = 1;
+                while(i < 5)
                 {
-                    y++;
+                    if(ft_is_valid_tab(x, y, i))
+                    {
+                        g_tab[x][y] = i;
+                        ft_start_calc();
+                        g_tab[x][y] = 0;
+                    }
+                    i++;
                 }
-                else
-                {
-                    y = 0;
-                    x++;
-                }
-                    
+                return (0);
             }
+            y++;
         }
-
-        
-        
-        i++;
-        ft_putstr("\nEssai numero : ");
-        ft_putnbr(i);
-        ft_putchar('\n');
-        
+        x++;
     }
-    
-    
 
-        
+    count++;
+    //ft_display_tab();
+    //ft_putchar('\n');
+    //ft_putnbr(count);
+
+    is_solved = ft_is_match_input();
+    
+    if(is_solved)
+        ft_display_tab();
+    //ft_putnbr(is_solved);
+
+    return (is_solved);
 }

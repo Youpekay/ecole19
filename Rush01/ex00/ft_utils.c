@@ -1,7 +1,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int     ft_is_valid_tab(int x, int y, int n);
+
 extern char **g_tab;
+extern char *data;
+extern char *data_valid;
 
 void	ft_putchar(char c)
 {
@@ -18,10 +22,6 @@ void	ft_putnbr(unsigned int nb)
 {
 	char	result;
 
-	//if (nb == -2147483648)
-		//write(1, &"-2147483648", 11);
-	//else
-	//{
 		if (nb < 0)
 		{
 			ft_putchar('-');
@@ -33,7 +33,6 @@ void	ft_putnbr(unsigned int nb)
 		}
 		result = nb % 10 + 48;
 		ft_putchar(result);
-	//}
 }
 
 void	ft_display_error(void)
@@ -69,7 +68,7 @@ void	ft_init_tab()
 	}
 }
 
-void	ft_display_tab(char **tab)
+void	ft_display_tab()
 {
 	int x;
 	int y;
@@ -80,7 +79,7 @@ void	ft_display_tab(char **tab)
 		x = 0;
 		while (x < 4)
 		{
-			ft_putchar(tab[y][x] + '0');
+			ft_putchar(g_tab[y][x] + '0');
 			if (++x < 4)
 				ft_putchar(' ');
 		}
@@ -99,27 +98,26 @@ void	ft_kill_tab(char **tab)
 	free(tab);
 }
 
-int		ft_is_valid_input(char *str)
+int		ft_is_valid_input()
 {
     int str_size;
     int t_size;
     int i;
 
-	//ft_putstr(str);
-    str_size = ft_strlen(str);
+    str_size = ft_strlen(data);
     t_size = 0;
     i = 0;
     while(i < str_size)
     {
-        if (str[i] >= '1' && str[i] <= '4')
+        if (data[i] >= '1' && data[i] <= '4')
         {
             t_size++;
             if (i > 0)
 			{
-				if (str[i-1] != 32)
+				if (data[i-1] != 32)
 				{
 					ft_putstr("No space before digit\n");
-					ft_putnbr(str[i] - 1);
+					ft_putnbr(data[i] - 1);
 					return (0);
 				}
 			}
@@ -134,30 +132,73 @@ int		ft_is_valid_input(char *str)
            
     }
 
-	//ft_putnbr(t_size);
-
     if (t_size == 16)
         return (1);
     else
         return (0);
 }
 
-void	ft_data_nospace(char *data, char *data_valid)
+
+void	ft_data_nospace()
 {
-	int k;
-	int l;
+	int i;
+	int j;
+	int size;
 
-	k = 0;
-	l = 0;
-	while (data[k] != '\0')
+	i = 0;
+	j = 0;
+	size = ft_strlen(data);
+
+	while(i < size)
 	{
-		if (k % 2 == 0 && l < 16)
-        {
-            data_valid[l] = data[k];
-            l++;
-        }
-			
-		k++;
+		if(data[i] >= '1' && data[i] <= '4')
+		{
+			data_valid[j] = data[i];
+			j++;
+		}
+		i++;
 	}
+	data_valid[j] = '\0';
+}
 
+
+int		ft_is_filled_tab()
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+
+	while (x < 4)
+	{
+		y = 0;
+		while (y < 4)
+		{
+			if(g_tab[x][y] == 0)
+				return (0);
+			y++;
+		}
+		x++;
+	}
+	return (1);
+}
+
+void	ft_reset_tab()
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+
+	while (x < 4)
+	{
+		while (y < 4)
+		{
+			g_tab[x][y] = 0;
+			y++;
+		}
+		x++;
+	}
 }
