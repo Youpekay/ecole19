@@ -1,62 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/20 18:54:29 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/20 18:54:54 by mreniere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putnbr(unsigned int nb);
-void	ft_display_error(void);
+void	ft_display_error();
 int		ft_is_valid_input();
 void	ft_init_tab();
-void	ft_display_tab();
-void	ft_kill_tab(char **tab);
-int		ft_is_valid_tab(char **tab);
+void	ft_kill_tab();
 int		ft_start_calc();
-void	ft_data_nospace();
+int		ft_strlen(char *str);
 
 extern char **g_tab;
-extern int count;
-extern int result_found;
-extern char *data;
-extern char *data_valid;
+extern char *g_data;
+extern int g_show_result;
 
 int		main(int argc, char **argv)
 {
-	
-
-	result_found = 0;
-	
-
-	if(argc != 2)
-	{
-		ft_putstr("No param");
+	if (argc != 2)
 		ft_display_error();
-	}
 	else
 	{
-		data = argv[1];
-		
-		if (ft_is_valid_input())
+		g_data = argv[1];
+		if (ft_is_valid_input(0, ft_strlen(g_data), 0))
 		{
-			if(!(data_valid = malloc(16 * sizeof(char))))
-				return (0);
-
-			ft_data_nospace();
-			ft_putstr("Correct input format\n");
-			//ft_putstr(data_valid);
-			ft_init_tab(g_tab);
-			ft_putstr("Tab initialized\n");
-
-			count = 0;
-			result_found = ft_start_calc();
-
-			if (result_found)
-				ft_display_tab();
+			g_show_result = 0;
+			ft_init_tab();
+			ft_start_calc(1, -1, -1);
+			ft_kill_tab();
 		}
 		else
-		{
-			ft_putstr("Bad input");
 			ft_display_error();
-		}
-			
 	}
+	if (!g_show_result)
+		ft_display_error();
 	return (0);
 }
