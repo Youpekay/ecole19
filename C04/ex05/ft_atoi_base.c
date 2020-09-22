@@ -6,11 +6,9 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 15:33:45 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 13:17:26 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 14:29:39 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int		ft_strlen(char *str)
 {
@@ -27,27 +25,30 @@ int		is_ignored(char c)
 	return ((c > 8 && c < 14) || c == 32 || c == 43);
 }
 
-int		is_base_valid(char *base)
+int		is_base_valid(char *str)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	j = 0;
-	if (ft_strlen(base) < 2)
+	if (str == 0 || ft_strlen(str) < 2)
 		return (0);
-	while (base[i++])
+	while (str[i])
+	{
+		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+				str[i] == '\f' || str[i] == '\r' || str[i] == ' ' ||
+				str[i] == '+' || str[i] == '-')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (i < ft_strlen(str))
 	{
 		j = i + 1;
-		if (base[i] == 43 || base[i] == 45 ||
-				base[i] == 32 || (base[i] > 8 && base[i] < 14))
-			return (0);
-		while (base[j])
-		{
-			if (base[i] == base[j])
+		while (j < ft_strlen(str))
+			if (str[i] == str[j++])
 				return (0);
-			j++;
-		}
+		i++;
 	}
 	return (1);
 }
@@ -80,10 +81,10 @@ int		ft_atoi_base(char *str, char *base)
 		return (0);
 	while (is_ignored(*str))
 		str++;
-	while (*str == 45 || *str == 43)
+	while (*str == '+' || *str == '-')
 	{
-		if (*str == 45)
-			negative = -negative;
+		if (*str == '-')
+			negative *= -1;
 		str++;
 	}
 	while ((char_index = give_index_base(base, *str)) != -1)
