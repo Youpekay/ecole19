@@ -6,18 +6,18 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 19:11:44 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 13:16:58 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 13:34:34 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		is_ignored(char c)
 {
-	return ((c > 8 && c < 14) || c == 32);
+	return ((c >= 9 && c <= 13) || c == ' ');
 }
 
 int		is_numeric(char c)
 {
-	return (c >= 48 && c <= 57);
+	return (c >= '0' && c <= '9');
 }
 
 int		ft_atoi(char *str)
@@ -29,9 +29,9 @@ int		ft_atoi(char *str)
 	result = 0;
 	while (is_ignored(*str))
 		str++;
-	while (*str == 45 || *str == 43)
+	while (*str == '+' || *str == '-')
 	{
-		if (*str == 45)
+		if (*str == '-')
 			negative *= -1;
 		str++;
 	}

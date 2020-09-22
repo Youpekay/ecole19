@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 12:28:34 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/17 18:14:06 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 14:21:30 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int		ft_strlen(char *str)
 {
@@ -22,56 +27,53 @@ int		ft_strlen(char *str)
 	return (count);
 }
 
-int		is_base_valid(char *base)
+int		is_base_valid(char *str)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	j = 0;
-	if (ft_strlen(base) < 2)
+	if (str == 0 || ft_strlen(str) < 2)
 		return (0);
-	while (base[i++])
+	while (str[i])
+	{
+		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+				str[i] == '\f' || str[i] == '\r' || str[i] == ' ' ||
+				str[i] == '+' || str[i] == '-')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (i < ft_strlen(str))
 	{
 		j = i + 1;
-		if (base[i] == 43 || base[i] == 45 ||
-				base[i] == 32 || (base[i] > 8 && base[i] < 14))
-			return (0);
-		while (base[j])
-		{
-			if (base[i] == base[j])
+		while (j < ft_strlen(str))
+			if (str[i] == str[j++])
 				return (0);
-			j++;
-		}
+		i++;
 	}
 	return (1);
 }
 
-void	putnbr_base_recursive(unsigned int nbr, char *base, unsigned int size)
+void	convert_base(unsigned int nb, char *base)
 {
-	int		mod;
+	unsigned int	size;
 
-	mod = 0;
-	if (nbr > size)
-		putnbr_base_recursive(nbr / size, base, size);
-	mod = nbr % size;
-	write(1, &(base[(mod)]), 1);
+	size = ft_strlen(base);
+	if (nb >= size)
+		convert_base(nb / size, base);
+	ft_putchar(base[nb % size]);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int				base_size;
-	unsigned int	n;
+	unsigned int	nbr2;
 
-	n = nbr;
-	base_size = ft_strlen(base);
+	nbr2 = (unsigned int)nbr;
 	if (is_base_valid(base))
 	{
 		if (nbr < 0)
-		{
-			n = -n;
 			write(1, "-", 1);
-		}
-		putnbr_base_recursive(n, base, base_size);
+		convert_base(nbr2, base);
 	}
 }
