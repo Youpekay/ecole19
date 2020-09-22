@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 15:33:45 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/17 10:50:41 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 13:17:26 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		ft_atoi_base(char *str, char *base)
 		str++;
 	while (*str == 45 || *str == 43)
 	{
-		if (*str == 43)
+		if (*str == 45)
 			negative = -negative;
 		str++;
 	}

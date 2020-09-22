@@ -6,11 +6,9 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 19:11:44 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/21 20:12:55 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 13:16:58 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int		is_ignored(char c)
 {
@@ -33,8 +31,8 @@ int		ft_atoi(char *str)
 		str++;
 	while (*str == 45 || *str == 43)
 	{
-		if (*str == 43)
-			negative = -negative;
+		if (*str == 45)
+			negative *= -1;
 		str++;
 	}
 	while (is_numeric(*str))
@@ -44,10 +42,4 @@ int		ft_atoi(char *str)
 		str++;
 	}
 	return (result * negative);
-}
-
-int		main(void)
-{
-	printf("%d", ft_atoi("      -+-++i+---+686688i01"));
-	return (0);
 }
