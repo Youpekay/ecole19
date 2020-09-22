@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 18:30:09 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 12:31:02 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 19:15:21 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_find_next_prime(int nb)
 	i = 3;
 	while (i * i <= (unsigned int)nb)
 	{
-		if (!(nb % i))
+		if (nb % i == 0)
 		{
 			nb += 2;
 			i = 1;
