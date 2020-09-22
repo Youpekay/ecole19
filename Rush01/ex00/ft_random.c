@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_random.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/20 18:56:28 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/20 18:56:44 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 08:47:35 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_init_tab(void)
 	int y;
 
 	if (!(g_tab = malloc(5 * sizeof(char*))))
-		return ;
+		return (NULL);
 	y = -1;
 	while (++y < 4)
 	{
