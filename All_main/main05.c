@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main05.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agraton <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 18:35:03 by agraton           #+#    #+#             */
-/*   Updated: 2020/09/15 17:47:57 by agraton          ###   ########.fr       */
+/*   Updated: 2020/09/22 12:37:56 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<stdio.h>
-#include<unistd.h>
+
+#include <unistd.h>
+#include <stdio.h>
 
 int			ft_iterative_factorial(int nb);
 int			ft_recursive_factorial(int nb);
@@ -18,8 +19,8 @@ int			ft_iterative_power(int nb, int power);
 int			ft_recursive_power(int nb, int power);
 int			ft_fibonacci(int index);
 int			ft_sqrt(int nb);
-//int			ft_is_prime(int nb);
-//int			ft_find_next_prime(int nb);
+int			ft_is_prime(int nb);
+int			ft_find_next_prime(int nb);
 
 int			main(void)
 {
@@ -117,7 +118,7 @@ int			main(void)
 	printf("%s\\/'144 = %d | 12\n\e[0m", coor, ft_sqrt(144));
 	coor = (ft_sqrt(2147395600) == 46340) ? "\e[32m" : "\e[31m" ;
 	printf("%s\\/'2147395600 = %d | 46340\e[0m", coor, ft_sqrt(2147395600));
-    /*
+    
 	printf("\n\nO-----------------------------------------------------------------------------------------------O\n\n");
 
 	printf("ex06: ft_is_prime\n");
@@ -154,7 +155,7 @@ int			main(void)
 	coor = (ft_find_next_prime(2147483588) == 2147483629) ? "\e[32m" : "\e[31m" ;
 	printf("%s2147483588 => %d | 2147483629\n\e[0m", coor, ft_find_next_prime(2147483588));
 	coor = (ft_find_next_prime(2147483645) == 2147483647) ? "\e[32m" : "\e[31m" ;
-	printf("%s2147483645 => %d | 2147483647\n\e[0m", coor, ft_find_next_prime(2147483645));
+	printf("%s2147483646 => %d | 2147483647\n\e[0m", coor, ft_find_next_prime(2147483646));
 
 	printf("\n\nO-----------------------------------------------------------------------------------------------O\n\n");
 
@@ -163,6 +164,6 @@ int			main(void)
 
 	printf("\n\nO-----------------------------------------------------------------------------------------------O\n\n");
 
-*/
+
 	return (0);
 }
