@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 12:28:34 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 14:21:30 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/22 20:14:10 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,17 @@ void	convert_base(unsigned int nb, char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	unsigned int	nbr2;
+	int negative;
 
-	nbr2 = (unsigned int)nbr;
+	negative = 1;
 	if (is_base_valid(base))
 	{
 		if (nbr < 0)
+		{
 			write(1, "-", 1);
-		convert_base(nbr2, base);
+			convert_base(-nbr, base);
+		}
+		else
+			convert_base(nbr, base);
 	}
 }
