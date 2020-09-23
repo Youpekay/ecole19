@@ -5,82 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/22 17:36:32 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 20:58:23 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/23 09:29:29 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/23 14:57:56 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_putnbr_base(int nbr, char *base);
 int		ft_strlen(char *str);
-int		is_base_valid(char *str);
-
-int		is_ignored(char c)
-{
-	return ((c > 8 && c < 14) || c == 32 || c == 43);
-}
-
-int		give_index_base(char *base, char tofind)
-{
-	int		i;
-
-	i = 0;
-	while (base[i])
-	{
-		if (base[i] == tofind)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-int		ft_atoi_base(char *str, char *base)
-{
-	int size;
-	int result;
-	int negative;
-	int char_index;
-
-	negative = 1;
-	size = ft_strlen(base);
-	result = 0;
-	if (!is_base_valid(base))
-		return (0);
-	while (is_ignored(*str))
-		str++;
-	while (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			negative *= -1;
-		str++;
-	}
-	while ((char_index = give_index_base(base, *str)) != -1)
-	{
-		result *= size;
-		result += char_index;
-		str++;
-	}
-	return (result * negative);
-}
+int		ft_get_needed_size(unsigned int nb, unsigned int base_size);
+int		ft_is_base_valid(char *str);
+int		ft_exist_char_in_base(char c, char *base);
+int		ft_atoi_base(char *str, char *base, int size);
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int result;
-	char *result_ch;
-	
-	result = ft_atoi_base(nbr, base_from);
-	result_ch = ft_putnbr_base(result, base_to);
+	char			*result;
+	int				nb_int;
+	unsigned int	nb_uint;
+	int				size_bto;
+	int				needed_size;
 
-	return (result_ch);
-}
-
-int		main(void)
-{
-	printf("result : $%s$\n", ft_convert_base("2147483647", "0123456789", "0123456789abcdef"));
-	printf("result : $%s$\n", ft_convert_base("---------7fffffff", "0123456789abcdef", "01"));
-	printf("result : $%s$\n", ft_convert_base("---+--0001023a", "0123456789", "0123456789"));
-	printf("result : $%s$\n", ft_convert_base("-0", "0123456789", "abcdefghij"));
-
-	return (0);
+	size_bto = ft_is_base_valid(base_to);
+	if (!(ft_is_base_valid(base_from) && size_bto))
+		return (NULL);
+	nb_int = ft_atoi_base(nbr, base_from, ft_is_base_valid(base_from));
+	nb_uint = (nb_int < 0) ? -nb_int : nb_int;
+	needed_size = ft_get_needed_size(nb_uint, size_bto) +
+		((nb_int < 0) ? 1 : 0);
+	if (!(result = malloc((needed_size + 1) * sizeof(char))))
+		return (NULL);
+	result[needed_size] = '\0';
+	while (needed_size--)
+	{
+		result[needed_size] = base_to[nb_uint % size_bto];
+		nb_uint /= size_bto;
+	}
+	if (nb_int < 0)
+		result[0] = '-';
+	return (result);
 }

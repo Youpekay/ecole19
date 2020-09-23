@@ -5,18 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/22 20:14:48 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 20:59:58 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/23 09:29:32 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/23 14:54:54 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdlib.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 int		ft_strlen(char *str)
 {
@@ -28,7 +20,22 @@ int		ft_strlen(char *str)
 	return (count);
 }
 
-int		is_base_valid(char *str)
+int		ft_get_needed_size(unsigned int nb, unsigned int base_size)
+{
+	unsigned int	size;
+
+	size = 0;
+	while (1)
+	{
+		size++;
+		if (nb / base_size == 0)
+			break ;
+		nb /= base_size;
+	}
+	return (size);
+}
+
+int		ft_is_base_valid(char *str)
 {
 	int		i;
 	int		j;
@@ -53,57 +60,34 @@ int		is_base_valid(char *str)
 				return (0);
 		i++;
 	}
-	return (1);
+	return (i);
 }
 
-char	*convert_base(unsigned int nb, char *base)
+int		ft_exist_char_in_base(char c, char *base)
 {
-	unsigned int	size;
 	int i;
-	char *result;
-	unsigned int nb_tmp;
 
-	i = 0;
-	size = ft_strlen(base);
-	/*
-	if (nb >= size)
-		convert_base(nb / size, base);
-	ft_putchar(base[nb % size]);
-	*/
-
-	nb_tmp = nb;
-	while(nb_tmp < size)
-	{
-		nb_tmp /= size;
-		i++;
-	}
-	result = malloc(i * sizeof(char));
-	while (i--)
-	{
-		result[i] = base[nb % size];
-		nb /= size;
-	}
-	return (result);
+	i = -1;
+	while (base[++i])
+		if (c == base[i])
+			return (i);
+	return (-1);
 }
 
-char	*ft_putnbr_base(int nbr, char *base)
+int		ft_atoi_base(char *str, char *base, int size)
 {
-	char *result;
+	int i;
+	int result;
+	int negative;
 
-	if (is_base_valid(base))
-	{
-		if (nbr < 0)
-		{
-			write(1, "-", 1);
-			result = convert_base(-nbr, base);
-		}
-		else
-			result = convert_base(nbr, base);
-	}
-	else
-	{
-		result = "BEURK";
-	}
-	
-	return (result);
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	negative = 1;
+	while (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			negative *= -1;
+	result = 0;
+	while ((i = ft_exist_char_in_base(*str++, base)) >= 0)
+		result = result * size + i;
+	return (result * negative);
 }

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/22 09:08:59 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/23 14:59:27 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/23 15:12:50 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/23 16:15:58 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 
-int		*ft_range(int min, int max)
+int		find_next_iteration()
 {
-	int		range;
-	int		i;
-	int		*result;
+	
+}
 
-	if (min >= max)
-		return (0);
-	range = max - min - 1;
-	if (!(result = malloc(range * sizeof(int))))
-		return (0);
-	i = 0;
-	while (i <= range)
-	{
-		result[i] = min + i;
-		i++;
-	}
-	return (result);
+char	**ft_split(char *str, char *charset)
+{
+	
+}
+
+int		main(int argc, char **argv)
+{
+	
 }
