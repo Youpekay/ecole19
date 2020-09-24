@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/24 14:36:00 by mreniere          #+#    #+#              #
-#    Updated: 2020/09/24 15:10:33 by mreniere         ###   ########.fr        #
+#    Updated: 2020/09/24 16:20:38 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 
 .c.o:
 	gcc -Wall -Wextra -Werror -c -I ./includes $< -o ${<:.c=.o}
-			
+
 ${NAME}:	${OBJS}
 			ar -rcs ${NAME} ${OBJS}
 
