@@ -6,7 +6,11 @@
 #    By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/24 12:24:45 by mreniere          #+#    #+#              #
-#    Updated: 2020/09/24 12:24:46 by mreniere         ###   ########.fr        #
+#    Updated: 2020/09/24 14:25:18 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#!/usr/bin bash
+
+gcc -Wall -Werror -Wextra *.c -c
+ar rc libft.a *.o
