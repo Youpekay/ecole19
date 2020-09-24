@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 20:25:05 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/24 15:33:16 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/11 15:52:25 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/12 16:45:38 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+void	ft_swap(int *a, int *b)
 {
-	int		i;
-	int		j;
+	int tmp;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 20:25:05 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/24 15:33:16 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/09 18:11:38 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/22 14:06:10 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
-{
-	int		i;
-	int		j;
+#include <unistd.h>
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }

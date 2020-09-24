@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreniere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 20:25:05 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/24 15:33:16 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/15 15:27:28 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/15 15:29:09 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+int		ft_strlen(char *str)
 {
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
+	while (str[i])
 		i++;
-	while (src[j])
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }
