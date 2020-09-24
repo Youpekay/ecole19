@@ -6,10 +6,11 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 09:55:47 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/24 11:20:55 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/24 11:14:24 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
@@ -61,4 +62,81 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	}
 	tstockstr[i].str = 0;
 	return (tstockstr);
+}
+
+
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	char	result;
+
+	if (nb == -2147483648)
+	{
+		write(1, &"-2147483648", 11);
+	}
+	else
+	{
+		if (nb < 0)
+		{
+			ft_putchar('-');
+			nb = -nb;
+		}
+		if (nb >= 10)
+		{
+			ft_putnbr(nb / 10);
+		}
+		result = nb % 10 + 48;
+		ft_putchar(result);
+	}
+}
+
+void	ft_show_tab(struct s_stock_str *par)
+{
+	int i;
+
+	i = 0;
+	while (par[i].str != 0)
+	{
+		ft_putstr(par[i].str);
+		ft_putchar('\n');
+		ft_putnbr(par[i].size);
+		ft_putchar('\n');
+		ft_putstr(par[i].copy);
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+
+int		main(void)
+{
+	struct	s_stock_str	*s;
+	
+	
+	char **av;
+	char *str1;
+	char *str2;
+	char *str3;
+	
+	av = malloc(3 * sizeof(char *));
+	str1 = "wesh";
+	str2 = "les poto";
+	str3 = "sauce tomate";
+	av[0] = str1;
+	av[1] = str2;
+	av[2] = str3;
+
+	s = ft_strs_to_tab(3, av);
+	ft_show_tab(s);
 }
