@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 16:46:27 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/25 18:54:53 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/25 19:30:24 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	put_words(char **tab, char *str, char *charset)
 		if (!is_in_charset(str[i], charset))
 		{
 			if (k == 0)
-				tab[j] = malloc((word_size(str, charset, i) + 1)
-					* sizeof(char));
+				tab[j] = malloc(
+					(word_size(str, charset, i) + 1) * sizeof(char));
 			tab[j][k] = str[i];
 			tab[j][k + 1] = '\0';
 			k++;

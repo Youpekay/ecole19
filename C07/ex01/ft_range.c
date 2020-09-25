@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 09:08:59 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/23 14:59:27 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/25 18:59:19 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		*ft_range(int min, int max)
 
 	if (min >= max)
 		return (0);
-	range = max - min - 1;
+	range = max - (min - 1);
 	if (!(result = malloc(range * sizeof(int))))
 		return (0);
 	i = 0;

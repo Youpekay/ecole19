@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 09:35:08 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/22 16:31:19 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/25 19:01:22 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_ultimate_range(int **range, int min, int max)
 
 	if (min >= max)
 	{
-		*range = NULL;
+		*range = 0;
 		return (0);
 	}
 	max -= min;
