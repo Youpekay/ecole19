@@ -5,76 +5,94 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/24 13:27:30 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/24 19:44:36 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/25 18:46:27 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/25 18:48:00 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
-int		ft_strlen(char *str)
+int		is_in_charset(char c, char *charset)
 {
-	int	i;
+	while (*charset)
+	{
+		if (c == *charset)
+			return (1);
+		charset++;
+	}
+	return (0);
+}
+
+int		ft_nbr_words(char *str, char *charset)
+{
+	int		count;
+	int		in_word;
+
+	count = 0;
+	in_word = 0;
+	while (*str)
+	{
+		if (is_in_charset(*str, charset))
+			in_word = 0;
+		else if (in_word == 0)
+		{
+			in_word = 1;
+			count++;
+		}
+		str++;
+	}
+	return (count);
+}
+
+int		word_size(char *str, char *charset, int pos)
+{
+	int		i;
 
 	i = 0;
-	while (str[i])
-		i++;
+	while (str[pos])
+	{
+		if (!is_in_charset(str[pos], charset))
+			i++;
+		pos++;
+	}
 	return (i);
 }
 
-int		*ft_add_position(int *curr_pos, int new_pos)
+void	put_words(char **tab, char *str, char *charset)
 {
-	
-}
+	int		i;
+	int		j;
+	int		k;
 
-int		*ft_calc_iterations(char *str, char *tofind)
-{
-	int tf_size;
-	int str_size;
-	int i;
-
-	i = 0;
-	tf_size = ft_strlen(tofind);
-	str_size = ft_strlen(str);
-	while (str[i])
+	i = -1;
+	j = 0;
+	k = 0;
+	while (str[++i])
 	{
-		if()
-		i++;
+		if (!is_in_charset(str[i], charset))
+		{
+			if (k == 0)
+				tab[j] = malloc((word_size(str, charset, i) + 1)
+					* sizeof(char));
+			tab[j][k] = str[i];
+			tab[j][k + 1] = '\0';
+			k++;
+		}
+		if ((is_in_charset(str[i], charset) &&
+			!is_in_charset(str[i + 1], charset) && k > 0))
+		{
+			j++;
+			k = 0;
+		}
 	}
 }
-
-
-
-
 
 char	**ft_split(char *str, char *charset)
 {
-	char	**result;
-	int		chset_size;
+	char	**tab;
 
-	chset_size = ft_strlen(charset);
-	
-	
-	return (result);
-}
-
-int		main(int argc, char **argv)
-{
-	int		index;
-	char	**split;
-
-	argc = argc + 0;
-	printf("count occ: %d\n", count_occur("  a  b   b   ", " a   "));
-	//split = ft_split("ImtmVrV6Ov8QrkGGUglBy7Vgsu iIsdl5XyT35Czv4xeu", "yenORYQ");
-	split = ft_split(argv[1], argv[2]);
-	index = 0;
-	printf("tab start\n");
-	while (split[index])
-	{
-		printf("tab[%d]: $%s$\n", index, split[index]);
-		fflush(stdout);
-		index++;
-	}
-	printf("tab end\n");
+	tab = malloc((ft_nbr_words(str, charset) + 1) * sizeof(char*));
+	put_words(tab, str, charset);
+	tab[ft_nbr_words(str, charset)] = NULL;
+	return (tab);
 }
