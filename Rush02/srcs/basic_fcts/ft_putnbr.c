@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dfilipov <dfilipov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 20:23:02 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/27 09:17:45 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/12 19:09:13 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/27 14:06:22 by dfilipov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
+#include <unistd.h>
 
-	i = 0;
-	while (src[i] != '\0')
+void	ft_putnbr(int nb)
+{
+	long	int	a;
+	char		c;
+
+	a = nb;
+	if (a < 0)
 	{
-		dest[i] = src[i];
-		i++;
+		write(1, "-", 1);
+		a = -a;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (a >= 10)
+	{
+		ft_putnbr(a / 10);
+	}
+	c = a % 10 + '0';
+	write(1, &c, 1);
 }
