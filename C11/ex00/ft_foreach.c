@@ -6,17 +6,17 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 09:26:55 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/28 09:57:34 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/28 10:00:12 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_foreach(int *tab, int size, void (*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int i;
 
 	i = -1;
-	while (++i < size)
+	while (++i < length)
 		(*f)(tab[i]);
 }
