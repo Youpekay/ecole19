@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_dict.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfilipov <dfilipov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 10:24:40 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/27 16:32:26 by dfilipov         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:11:44 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/types.h>
-#include <sys/uio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>

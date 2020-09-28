@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_algo2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfilipov <dfilipov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 13:47:56 by dfilipov          #+#    #+#             */
-/*   Updated: 2020/09/27 16:00:14 by dfilipov         ###   ########.fr       */
+/*   Updated: 2020/09/28 12:34:41 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ void	manage_all_3(char *number, int input_size, int pos, int nbr_mod)
 			j = -1;
 			while (1)
 			{
-				if ((ft_strlen(nbr_dic[++j].number_form) ==
-					(input_size - (nbr_mod - 1) - i * 3)))
+				if ((ft_strlen(nbr_dic[++j].number_form) ==	(input_size - (nbr_mod - 1) - i * 3)))
 				{
 					ft_putstr(nbr_dic[j].char_form);
 					ft_putchar(' ');
