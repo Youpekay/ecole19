@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/24 14:36:00 by mreniere          #+#    #+#              #
-#    Updated: 2020/09/24 16:20:38 by mreniere         ###   ########.fr        #
+#    Updated: 2020/09/28 15:13:49 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
-	rm -f ${OBJS}
+			rm -f ${OBJS}
 
 fclean:		clean
 			rm -f ${NAME}
