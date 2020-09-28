@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 09:29:29 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/23 14:57:56 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/28 15:50:43 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (NULL);
 	nb_int = ft_atoi_base(nbr, base_from, ft_is_base_valid(base_from));
 	nb_uint = (nb_int < 0) ? -nb_int : nb_int;
-	needed_size = ft_get_needed_size(nb_uint, size_bto) +
-		((nb_int < 0) ? 1 : 0);
+	needed_size = ft_get_needed_size(nb_uint, size_bto) + ((nb_int < 0) ? 1 : 0);
 	if (!(result = malloc((needed_size + 1) * sizeof(char))))
 		return (NULL);
 	result[needed_size] = '\0';
