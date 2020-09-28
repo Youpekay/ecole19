@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/24 14:36:00 by mreniere          #+#    #+#              #
-#    Updated: 2020/09/28 15:13:49 by mreniere         ###   ########.fr        #
+#    Updated: 2020/09/28 18:26:57 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft.a
 	gcc -Wall -Wextra -Werror -c -I ./includes $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			ar -rcs ${NAME} ${OBJS}
+			ar -rcs $@ $^
 
 all:		${NAME}
 
@@ -30,3 +30,4 @@ fclean:		clean
 
 re:			fclean all
 
+.PHONY:		all clean fclean re
