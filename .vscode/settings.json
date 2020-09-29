@@ -16,6 +16,7 @@
 		"__string": "c",
 		"limits": "c",
 		"stdlib.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"functional": "c"
 	}
 }

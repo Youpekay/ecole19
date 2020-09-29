@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 11:17:41 by dfilipov          #+#    #+#             */
-/*   Updated: 2020/09/28 12:05:40 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/29 16:46:05 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	free_the_dict(void)
 
 char	*remove_useless_0(char *input)
 {
-	while (*input++)
+	while (*input)
 	{
 		if (*input != '0')
 			break ;
+		input++;
 	}
 	return (input);
 }
