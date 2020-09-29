@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:21:29 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/28 14:23:39 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/29 20:17:49 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int	ft_any(char **tab, int (*f)(char*))
 		if ((*f)(tab[i++]))
 			return (1);
 	}
-
 	return (0);
 }

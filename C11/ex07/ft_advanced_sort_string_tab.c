@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 20:38:56 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/29 20:03:24 by mreniere         ###   ########.fr       */
+/*   Created: 2020/09/29 20:18:42 by mreniere          #+#    #+#             */
+/*   Updated: 2020/09/29 20:25:05 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int		i;
+	int		j;
+	int		result;
+	char	*tmp;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (tab[i])
 	{
-		if (!((str[i] > 64 && str[i] < 91) ||
-					(str[i] > 96 && str[i] < 123)))
-			return (0);
+		j = 0;
+		while (tab[j])
+		{
+			result = cmp(tab[i], tab[j]);
+			if (result < 0)
+			{
+				tmp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+			j++;
+		}
 		i++;
 	}
-	return (1);
 }
