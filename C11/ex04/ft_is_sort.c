@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:27:50 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/28 20:41:20 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/29 13:33:16 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,29 @@
 
 int		ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	int i;
-	int r1;
-	int r2;
+	int		i;
+	int		neg;
+	int		pos;
 
-	i = 1;
-	while (i < length && !(r1 = (*f)(tab[i - 1], tab[i])))
-		i++;
-	while (i < length)
+	i = 0;
+	neg = 1;
+	pos = 1;
+	if (length == 1 || length == 0)
+		return (1);
+	while (i < length - 1)
 	{
-		r2 = (*f)(tab[i - 1], tab[i]);
-		if ((r1 < 0 && r2 > 0) || (r1 > 0 && r2 < 0))
-			return (0);
+		if ((*f)(tab[i], tab[i + 1]) < 0)
+			neg++;
+		else if ((*f)(tab[i], tab[i + 1]) > 0)
+			pos++;
+		else
+		{
+			pos++;
+			neg++;
+		}
 		i++;
 	}
-	return (1);
+	if (pos == length || neg == length)
+		return (1);
+	return (0);
 }
