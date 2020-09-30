@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 13:59:16 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/29 18:05:24 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/30 17:15:02 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ int		is_nbr2_ok(void)
 		if (g_operator[0] == '/')
 		{
 			ft_putstr("Stop : division by zero");
+			ft_putchar('\n');
 			return (0);
 		}
 		else if (g_operator[0] == '%')
 		{
 			ft_putstr("Stop : modulo by zero");
+			ft_putchar('\n');
 			return (0);
 		}
 	}
@@ -75,6 +77,7 @@ int		main(int argc, char **argv)
 	if (!is_operator_valid(g_operator))
 	{
 		ft_putchar('0');
+		ft_putchar('\n');
 		return (0);
 	}
 	ft_get_addr();
@@ -84,6 +87,7 @@ int		main(int argc, char **argv)
 	{
 		result = g_addr_fct(g_nbr1_int, g_nbr2_int);
 		ft_putnbr(result);
+		ft_putchar('\n');
 	}
 	return (0);
 }
