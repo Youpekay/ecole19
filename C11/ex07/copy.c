@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
+/*   copy.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 20:18:42 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/30 17:33:14 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/30 17:35:20 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,51 @@
 #include <stdlib.h>
 #include <string.h>
 
-int		cmp(char *s1, char *s2)
+void	ft_swap(char **a, char **b)
 {
-	while (*s1 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	char *c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
 void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	int		i;
-	int		j;
-	int		result;
-	char	*tmp;
+	int		index;
+	int		size;
+	int		is_swapped;
 
-	i = 0;
-	while (tab[i])
+	size = 0;
+	is_swapped
+	while (tab[size])
+		size++;
+	while (is_swapped)
 	{
-		j = 0;
-		while (tab[j])
+		index = 0;
+		swapped = false;
+		while (index < size - 1)
 		{
-			result = cmp(tab[i], tab[j]);
-			if (result < 0)
+			if ((*cmp)(tab[index], tab[index + 1]) > 0)
 			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
+				ft_swap(&tab[index], &tab[index + 1]);
+				swapped = true;
 			}
-			j++;
+			index++;
 		}
-		i++;
+		if (!swapped)
+			break ;
 	}
+}
+
+int		ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 != '\0' && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char*)s1 - *(unsigned char*)s2);
 }
 
 
@@ -71,7 +82,7 @@ int		main(void)
 		printf("tab[%d] <@ %p> = $%s$\n", index, tab + index, tab[index]);
 		index++;
 	}
-	ft_advanced_sort_string_tab(tab, &cmp);
+	ft_advanced_sort_string_tab(tab, &ft_strcmp);
 	printf("\n");
 	index = 0;
 	while (tab[index])

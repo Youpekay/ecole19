@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 18:10:05 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/30 10:48:33 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/30 17:29:28 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int		main(void)
 	char	**tab;
 
 	tab = malloc(8 * sizeof(char *));
-	tab[0] = strdup("hello");
-	tab[1] = strdup("world");
-	tab[2] = strdup("a");
-	tab[3] = strdup("aa");
-	tab[4] = strdup("ba");
-	tab[5] = strdup("ab");
-	tab[6] = strdup("z");
+	tab[0] = strdup("30kQm1XqG");
+	tab[1] = strdup("S8Eb3z");
+	tab[2] = strdup("m7uCnrIH");
+	tab[3] = strdup("81x");
+	tab[4] = strdup("iFCl");
+	tab[5] = strdup("adtQR0ueXC5q");
+	tab[6] = strdup("BxMTuJH");
 	tab[7] = 0;
 	index = 0;
 	while (tab[index])
