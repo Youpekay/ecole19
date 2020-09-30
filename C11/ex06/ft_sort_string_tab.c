@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 18:10:05 by mreniere          #+#    #+#             */
-/*   Updated: 2020/09/29 20:17:16 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/09/30 10:48:33 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,35 @@ void	ft_sort_string_tab(char **tab)
 			j++;
 		}
 		i++;
+	}
+}
+
+int		main(void)
+{
+	int		index;
+	char	**tab;
+
+	tab = malloc(8 * sizeof(char *));
+	tab[0] = strdup("hello");
+	tab[1] = strdup("world");
+	tab[2] = strdup("a");
+	tab[3] = strdup("aa");
+	tab[4] = strdup("ba");
+	tab[5] = strdup("ab");
+	tab[6] = strdup("z");
+	tab[7] = 0;
+	index = 0;
+	while (tab[index])
+	{
+		printf("tab[%d] <@ %p> = $%s$\n", index, tab + index, tab[index]);
+		index++;
+	}
+	ft_sort_string_tab(tab);
+	printf("\n");
+	index = 0;
+	while (tab[index])
+	{
+		printf("tab[%d] <@ %p> = $%s$\n", index, tab + index, tab[index]);
+		index++;
 	}
 }
