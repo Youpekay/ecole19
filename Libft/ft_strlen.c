@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anon <anon@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 06:21:08 by anon              #+#    #+#             */
-/*   Updated: 2020/11/17 06:21:10 by anon             ###   ########.fr       */
+/*   Created: 2020/11/17 06:27:48 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/17 06:28:11 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int ft_strlen(char *str)
 {
 	int i;
 
