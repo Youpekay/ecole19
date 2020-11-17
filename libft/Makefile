@@ -6,16 +6,21 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/17 17:32:52 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/17 23:55:05 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC	= gcc -c
-CFLAGS	= -Wall -Wextra -Werror
-AR	= ar rcs
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
-NAME	= libft.a
-SRC = ft_isalpha.c ft_strlen.c ft_memset.c ft_bzero.c
+NAME = libft.a
+SRC =	ft_isupper.c \
+		ft_islower.c \
+		ft_isalpha.c \
+		ft_strlen.c \
+		ft_memset.c \
+		ft_bzero.c
 
 INCLUDE = ./libft.h
 
@@ -23,24 +28,22 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(INCLUDE)
-	ar rc $(NAME) $(OBJ)
+$(NAME) : 
+	$(CC) $(CFLAGS) -c $(SRC)
+	$(AR) $(NAME) $(OBJ)
 	ranlib $(NAME)
-
-%.o : %.c $(INLUDE)
-	$(CC) $(FLAGS) -c -o $@ $<
 
 clean : 
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -f $(NAME) $(OBJS)
+	rm -rf $(NAME)
 
 re: fclean all
 
 so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
-	$(CC) -shared -o libft.so $(OBJ)
+	$(CC) -c -fPIC $(CFLAGS) $(SRC)
+	$(CC) -c -shared -o libft.so $(OBJ)
 
 
 .PHONY: all clean fclean re
