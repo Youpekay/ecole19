@@ -6,11 +6,11 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/17 13:12:59 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/17 16:05:29 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC	= gcc -nostartfiles
+CC	= gcc
 CFLAGS	= -Wall -Wextra -Werror
 AR	= ar rcs
 
@@ -27,21 +27,18 @@ $(NAME) : $(OBJ) $(INCLUDE)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-%.o :
-	%.c $(INLUDE)
+%.o : %.c $(INLUDE)
 	$(CC) $(FLAGS) -c -o $@ $<
 
-clean :
+clean : 
 	rm -rf $(OBJ)
 
-fclean :
-	clean
-	rm -rf $(NAME)
+fclean : clean
+	rm -f $(NAME) $(OBJS)
 
 re: fclean all
 
-so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
+so: $(CC) -fPIC $(CFLAGS) $(SRC)
 	$(CC) -shared -o libft.so $(OBJ)
 
 
