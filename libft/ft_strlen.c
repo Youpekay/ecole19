@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 06:27:48 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 23:46:08 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/18 00:40:57 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ size_t		ft_strlen(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-		
 	return (i);
 }
