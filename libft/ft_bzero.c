@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 07:48:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 17:21:42 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/17 17:30:32 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/17 17:30:35 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+void	ft_bzero(void *s, size_t n)
 {
-		return (ft_islower(c) || ft_isupper(c));
+	ft_memset(s, '\0', n);
 }
