@@ -6,9 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 06:27:48 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 08:01:38 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/17 13:00:35 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_strlen(char *str)
 {

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 07:48:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 11:50:14 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/17 13:02:14 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(char *str)
-{
-	int		i;
+#ifndef LIBFT_H
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!((str[i] > 64 && str[i] < 91) ||
-			(str[i] > 96 && str[i] < 123)))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+# define LIBFT_H
+
+int		ft_strlen(char *s);
+int		ft_isalpha(char *s);
+
+#endif
