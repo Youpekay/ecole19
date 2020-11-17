@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 13:02:14 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/17 15:48:54 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 # define LIBFT_H
 
 int		ft_strlen(char *s);
-int		ft_isalpha(char *s);
+int		ft_isalpha(int c);
 
 #endif

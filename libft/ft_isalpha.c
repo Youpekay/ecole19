@@ -6,23 +6,15 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 07:48:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 13:00:33 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/17 15:55:45 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(char *str)
+int		ft_isalpha(int c)
 {
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!((str[i] > 64 && str[i] < 91) ||
-			(str[i] > 96 && str[i] < 123)))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+		return (1);
+	return (0)
+;}
