@@ -6,11 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 07:48:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 11:50:14 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/17 08:04:05 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(char *str)
+int		ft_str_is_alpha(char *str)
 {
 	int		i;
 
