@@ -6,9 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:19:25 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 17:20:33 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/18 00:26:05 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_islower(int c)
 {

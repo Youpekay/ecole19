@@ -6,9 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:20:46 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/17 17:22:16 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/18 00:30:22 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_isupper(int c)
 {

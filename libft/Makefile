@@ -6,30 +6,28 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/17 23:55:05 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/18 00:28:37 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror
 AR = ar rcs
 
 NAME = libft.a
-SRC =	ft_isupper.c \
-		ft_islower.c \
-		ft_isalpha.c \
-		ft_strlen.c \
-		ft_memset.c \
-		ft_bzero.c
+SO = libft.so
+SRC = $(wildcard *.c)
 
 INCLUDE = ./libft.h
 
 OBJ = $(SRC:.c=.o)
 
+.PHONY: all clean fclean re
+
 all : $(NAME)
 
 $(NAME) : 
-	$(CC) $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) $(SRC)
 	$(AR) $(NAME) $(OBJ)
 	ranlib $(NAME)
 
@@ -37,13 +35,11 @@ clean :
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(SO)
 
 re: fclean all
 
 so:
-	$(CC) -c -fPIC $(CFLAGS) $(SRC)
-	$(CC) -c -shared -o libft.so $(OBJ)
-
-
-.PHONY: all clean fclean re
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	$(CC) -shared -o $(SO) $(OBJ)
+	
