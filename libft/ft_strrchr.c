@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 05:51:34 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 14:37:32 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/18 17:11:48 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/18 17:40:20 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*ptr;
-	unsigned char	chr;
+	size_t size;
 
-	ptr = (unsigned char *)s;
-	chr = (unsigned char)c;
-	while (n--)
+	size = ft_strlen(s) + 1;
+	s = ft_strchr(s, '\0');
+	while(size--)
 	{
-		if (*ptr == chr)
-			return ((void *)ptr);
-		ptr++;
+		if(*s == (char)c)
+			return ((char *)s);
+		s--;
 	}
 	return (NULL);
 }
