@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 06:10:40 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 09:25:05 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/18 10:21:05 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/18 10:48:18 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned char	*dest_cpy;
-	unsigned char	*src_cpy;
+	size_t	src_len;
 
-	if (!dest && !src)
-		return (NULL);
-	dest_cpy = (unsigned char*)dest;
-	src_cpy = (unsigned char*)src;
-	if (src > dest)
+	if (src && dst)
 	{
-		while (n--)
-			*dest_cpy++ = *src_cpy++;
+		src_len = ft_strlen(src);
+		if (size)
+		{
+			while (*src && (size-- - 1))
+				*dst++ = *src++;
+			*dst = '\0';
+		}
+		return (src_len);
 	}
-	else
-	{
-		while (n--)
-			dest_cpy[n] = src_cpy[n];
-	}
-	return (dest);
+	return (0);
 }
