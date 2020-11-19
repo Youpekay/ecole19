@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 17:19:25 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 13:37:29 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/19 13:26:06 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/19 13:32:57 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_islower(int c)
+#include "libft.h"
+
+int		ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
+	if (ft_isupper(c))
+		c += 32;
+	return (c);
 }
