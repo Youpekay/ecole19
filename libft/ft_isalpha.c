@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 07:48:01 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 00:41:10 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:58:27 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int		ft_isalpha(int c)
 {
-	return (ft_islower(c) || ft_isupper(c));
+	if (ft_islower(c) || ft_isupper(c))
+		return (1);
+	else
+		return (0);
 }

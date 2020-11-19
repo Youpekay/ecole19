@@ -6,13 +6,14 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:23:52 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 13:28:26 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:59:58 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isprint(int c)
 {
-	return (c >= 32 && c <= 126);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }
