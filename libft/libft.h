@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 22:34:18 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 06:06:03 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t		ft_strlen(const char *s);
 int			ft_islower(int c);
 int			ft_isupper(int c);
 int			ft_isalpha(int c);
+int			ft_isspace(const char *c);
+int			ft_isdigit(int c);
 
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
@@ -37,5 +39,7 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*strnstr(const char *big, const char *little, size_t len);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+
+int			ft_atoi(const char *nptr);
 
 #endif
