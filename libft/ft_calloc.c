@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 17:20:46 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 15:42:44 by mreniere         ###   ########.fr       */
+/*   Created: 2020/11/19 14:02:12 by mreniere          #+#    #+#             */
+/*   Updated: 2020/11/19 14:12:22 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isupper(int c)
+#include "libft.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return (c >= 'A' && c <= 'Z');
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

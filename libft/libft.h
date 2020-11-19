@@ -6,14 +6,14 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 13:27:30 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 14:14:19 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 
 # define LIBFT_H
-# include <string.h>
+# include <stdlib.h>
 
 size_t		ft_strlen(const char *s);
 int			ft_isspace(const char *c);
@@ -45,5 +45,7 @@ char		*strnstr(const char *big, const char *little, size_t len);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int			ft_atoi(const char *nptr);
+
+void		*ft_calloc(size_t nmemb, size_t size);
 
 #endif

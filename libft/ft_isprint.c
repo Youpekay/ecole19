@@ -6,14 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:23:52 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 13:59:58 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:42:33 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	return (c >= 32 && c <= 126);
 }

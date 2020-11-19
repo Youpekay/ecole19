@@ -6,14 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 05:39:18 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 13:59:35 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:42:13 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	return (c >= '0' && c <= '9');
 }

@@ -6,14 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:22:03 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 14:00:06 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:42:06 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (c >= 0 && c <= 127);
 }
