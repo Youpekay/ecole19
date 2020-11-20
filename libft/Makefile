@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/18 00:28:37 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/20 05:05:22 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ AR = ar rcs
 
 NAME = libft.a
 SO = libft.so
+AOUT = a.out
 SRC = $(wildcard *.c)
 
 INCLUDE = ./libft.h
@@ -35,7 +36,7 @@ clean :
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME) $(SO)
+	rm -rf $(NAME) $(SO) $(AOUT)
 
 re: fclean all
 
