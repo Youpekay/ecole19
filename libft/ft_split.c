@@ -6,31 +6,30 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 04:59:11 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/24 16:06:57 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:23:01 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
-//#include <unistd.h>
 
-static size_t get_nbr_words(char const *s, char c)
+static size_t	get_nbr_words(char const *s, char c)
 {
-	size_t count;
+	size_t	words;
 
-	count = 0;
+	words = 0;
 	while (*s)
 	{
+		while (*s == c)
+			s++;
+		if (*s != '\0')
+			words++;
 		while (*s && *s != c)
 			s++;
-		count++;
-		while (*s && *s == c)
-			s++;
 	}
-	return (count);
+	return (words);
 }
 
-static size_t get_word_len(char const *s, char c)
+static size_t	get_word_len(char const *s, char c)
 {
 	size_t i;
 
@@ -42,21 +41,33 @@ static size_t get_word_len(char const *s, char c)
 	return (i);
 }
 
-char **ft_split(char const *s, char c)
+static void		free_tab(char **tab, size_t i)
 {
-	size_t i;
-	size_t j;
-	size_t nbr_words;
-	char **tab;
+	while (i)
+		free(tab[i--]);
+	free(tab[i]);
+	free(tab);
+	return ;
+}
 
-	i = -1;
-	nbr_words = get_nbr_words(s, c);
-	if (!s || !(tab = malloc(sizeof(char *) * (nbr_words + 1))))
+char			**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	nbr_words;
+	char	**tab;
+
+	if (!s || !(tab = malloc(sizeof(char *) * (get_nbr_words(s, c) + 1))))
 		return (NULL);
+	nbr_words = get_nbr_words(s, c);
+	i = -1;
 	while (++i < nbr_words)
 	{
 		if (!(tab[i] = malloc(sizeof(char) * (get_word_len(s, c) + 1))))
+		{
+			free_tab(tab, i);
 			return (NULL);
+		}
 		j = 0;
 		while (*s && *s == c)
 			s++;
@@ -67,16 +78,3 @@ char **ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
-/*
-int main(int argc, char **argv)
-{
-	char *str = argv[1];
-	char c = 32;
-	char **ok;
-	size_t i = 0;
-
-	ok = ft_split(str, c);
-	while (ok[i])
-		printf("%s\r\n", ok[i++]);
-	return (0);
-}*/
