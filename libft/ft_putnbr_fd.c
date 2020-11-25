@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:19:39 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/26 00:06:39 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:53:22 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void			ft_putnbr_fd(int n, int fd)
 		n_str[n_len] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
-	ft_putendl_fd(n_str, fd);
+	ft_putstr_fd(n_str, fd);
 }

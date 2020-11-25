@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:17:13 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/25 15:17:17 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:51:14 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (s)
 	{
-		write(fd, s, ft_strlen(s));
+		ft_putstr_fd(s, fd);
 		write(fd, "\n", 1);
 	}
 }
