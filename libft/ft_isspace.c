@@ -6,15 +6,11 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 06:04:04 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/26 00:02:17 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:38:41 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isspace(const char *c)
+int		ft_isspace(int c)
 {
-	int res;
-
-	res = (*c == ' ' || *c == '\n' || *c == '\t' ||
-			*c == '\v' || *c == '\f' || *c == '\r');
-	return (res);
+	return ((c >= 9 && c <= 13) || c == ' ');
 }

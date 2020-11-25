@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 23:44:12 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 12:08:38 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:47:14 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			ft_atoi(const char *nptr)
 
 	positive = 1;
 	result = 0;
-	while (ft_isspace(nptr))
+	while (*nptr && ((*nptr >= 9 && *nptr <= 13) || *nptr == ' '))
 		++nptr;
 	if (*nptr == '+' || *nptr == '-')
 		if (*nptr++ == '-')
