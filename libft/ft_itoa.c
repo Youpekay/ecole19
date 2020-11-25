@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 08:42:51 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/25 09:16:04 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:03:23 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	get_n_len(int nbr)
 	size_t len;
 
 	len = 1;
-	if(nbr < 0)
+	if (nbr < 0)
 		len++;
 	while (nbr /= 10)
 		len++;
@@ -29,24 +29,24 @@ char	*ft_itoa(int n)
 	size_t	i;
 	size_t	n_len;
 	char	*str;
+	long	nbr;
 
 	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	n_len = get_n_len(n);
-	if(!(str = (char *)malloc(sizeof(char) * (n_len + 1))))
+	nbr = n;
+	n_len = get_n_len(nbr);
+	if (!(str = (char *)malloc(sizeof(char) * (n_len + 1))))
 		return (NULL);
 	str[n_len] = '\0';
-	if (n < 0)
+	if (nbr < 0)
 	{
 		str[0] = '-';
-		n = -n;
-		i++;
+		nbr = -nbr;
+		i = 1;
 	}
-	while (i < n_len--)
+	while (n_len-- - i)
 	{
-		str[n_len] = (n % 10) + '0';
-		n /= 10;
+		str[n_len] = (nbr % 10) + '0';
+		nbr /= 10;
 	}
 	return (str);
 }

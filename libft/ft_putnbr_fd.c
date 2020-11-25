@@ -6,54 +6,45 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:19:39 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/25 17:30:23 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:06:39 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	swap_tab(char *tab, int pos1, int pos2)
+static size_t	get_len(int nbr)
 {
-	int tmp;
+	size_t	len;
 
-	tmp = tab[pos1];
-	tab[pos1] = tab[pos2];
-	tab[pos2] = tmp;
+	len = 1;
+	if (nbr < 0)
+		len++;
+	while (nbr /= 10)
+		len++;
+	return (len);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
-	int		i;
+	size_t	i;
+	size_t	n_len;
 	char	n_str[11];
-	size_t	n_str_len;
+	long	nbr;
 
+	i = 0;
+	nbr = n;
+	n_len = get_len(nbr);
+	n_str[n_len] = '\0';
 	if (n < 0)
 	{
-		write(fd, "-", 1);
-		n = -n;
+		n_str[0] = '-';
+		nbr = -nbr;
+		i = 1;
 	}
-	i = 0;
-	while(n)
+	while (n_len-- - i)
 	{
-		n_str[i++] = n % 10 + '0';
-		n /= 10;
-	}
-	n_str[i] = '\0';
-	n_str_len = ft_strlen(n_str);
-	i = 0;
-	while(n_str_len / 2)
-	{
-		swap_tab(n_str, i, n_str_len - i++);
-		i++;
+		n_str[n_len] = (nbr % 10) + '0';
+		nbr /= 10;
 	}
 	ft_putendl_fd(n_str, fd);
-}
-
-int main(int argc, char **argv)
-{
-	char *a = argv[1];
-	int b = atoi(a);
-
-	ft_putnbr_fd(b, 1);
-	return (0);
 }

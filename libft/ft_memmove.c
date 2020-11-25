@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 06:10:40 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 16:57:51 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:05:13 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (!dest && !src)
 		return (NULL);
-
 	if (src > dest)
 		ft_memcpy(dest, src, n);
 	else

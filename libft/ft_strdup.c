@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 14:16:43 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/19 14:20:40 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:04:00 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strdup(const char *s1)
 {
 	char	*s2;
 	char	*ptr;
-	
+
 	if (!(s2 = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1)))
 		return (NULL);
 	ptr = s2;

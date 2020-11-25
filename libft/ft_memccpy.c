@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 05:26:55 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/18 15:54:25 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 00:07:04 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 
 	dest_cpy = (unsigned char *)dest;
 	src_cpy = (unsigned char *)src;
-
 	while (n--)
 	{
 		*dest_cpy++ = *src_cpy;
