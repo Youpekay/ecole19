@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/26 02:04:09 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/26 15:58:57 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ AR = ar rcs
 NAME = libft.a
 SO = libft.so
 AOUT = a.out
+
 SRC = ft_memset.c ft_bzero.c					\
-		ft_islower.c ft_isupper.c				\
 		ft_memcpy.c ft_memccpy.c				\
 		ft_memmove.c ft_memchr.c				\
 		ft_memcmp.c ft_strlen.c					\
@@ -32,11 +32,17 @@ SRC = ft_memset.c ft_bzero.c					\
 		ft_tolower.c ft_strmapi.c				\
 		ft_substr.c ft_split.c ft_itoa.c		\
 		ft_putchar_fd.c ft_putstr_fd.c			\
-		ft_putendl_fd.c ft_putnbr_fd.c ft_isspace.c
+		ft_putendl_fd.c ft_putnbr_fd.c
+
+SRCBONUS = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c	\
+			ft_lstclear.c ft_lstdelone.c ft_lstiter.c		\
+			ft_lstsize.c ft_lstmap.c ft_lstlast.c
 
 INCLUDE = ./libft.h
 
 OBJ = $(SRC:.c=.o)
+
+OBJBONUS = $(SRCBONUS:.c=.o)
 
 .PHONY: all clean fclean re
 
@@ -45,17 +51,18 @@ all : $(NAME)
 $(NAME) : 
 	$(CC) $(CFLAGS) $(SRC)
 	$(AR) $(NAME) $(OBJ)
-	ranlib $(NAME)
+
+bonuss: $(OBJ) $(OBJBONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJBONUS)
 
 clean : 
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME) $(SO) $(AOUT)
+		rm -rf $(NAME) $(SO) $(AOUT)
 
 re: fclean all
 
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC)
 	$(CC) -shared -o $(SO) $(OBJ)
-	
