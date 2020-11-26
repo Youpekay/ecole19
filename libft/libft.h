@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/25 15:24:42 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/26 01:15:45 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 size_t		ft_strlen(const char *s);
-int			ft_isspace(const char *c);
+int			ft_isspace(int c);
 int			ft_islower(int c);
 int			ft_isupper(int c);
 int			ft_isalpha(int c);
@@ -26,6 +26,7 @@ int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_tolower(int c);
+int			ft_toupper(int c);
 
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
