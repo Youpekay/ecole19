@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/26 15:58:57 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/27 08:58:32 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,7 @@ SRC = ft_memset.c ft_bzero.c					\
 
 SRCBONUS = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c	\
 			ft_lstclear.c ft_lstdelone.c ft_lstiter.c		\
-			ft_lstsize.c ft_lstmap.c ft_lstlast.c
-
-INCLUDE = ./libft.h
+			ft_lstsize.c ft_lstlast.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -48,15 +46,17 @@ OBJBONUS = $(SRCBONUS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : 
-	$(CC) $(CFLAGS) $(SRC)
-	$(AR) $(NAME) $(OBJ)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-bonuss: $(OBJ) $(OBJBONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJBONUS)
+$(NAME) : $(OBJ)
+		$(AR) $(NAME) $(OBJ)
+
+bonus : $(OBJ) $(OBJBONUS)
+		$(AR) $(NAME) $(OBJ) $(OBJBONUS)
 
 clean : 
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJBONUS)
 
 fclean : clean
 		rm -rf $(NAME) $(SO) $(AOUT)
@@ -64,5 +64,5 @@ fclean : clean
 re: fclean all
 
 so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
-	$(CC) -shared -o $(SO) $(OBJ)
+	$(CC) -fPIC $(CFLAGS) $(SRC) $(SRCBONUS)
+	$(CC) -shared -o $(SO) $(OBJ) $(OBJBONUS)
