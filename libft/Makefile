@@ -6,7 +6,7 @@
 #    By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 12:21:06 by mreniere          #+#    #+#              #
-#    Updated: 2020/11/27 08:58:32 by mreniere         ###   ########.fr        #
+#    Updated: 2020/11/27 17:31:05 by mreniere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ OBJBONUS = $(SRCBONUS:.c=.o)
 
 all : $(NAME)
 
-%.o: %.c
+%.o : %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME) : $(OBJ)
