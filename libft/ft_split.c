@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 04:59:11 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/25 10:23:01 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/30 16:04:51 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ static size_t	get_word_len(char const *s, char c)
 
 static void		free_tab(char **tab, size_t i)
 {
-	while (i)
-		free(tab[i--]);
-	free(tab[i]);
+	while (i--)
+		free(tab[i]);
 	free(tab);
 	return ;
 }

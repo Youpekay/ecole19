@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:32:37 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/27 14:14:28 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/30 12:33:38 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# define LNG_MAX 9223372036854775807
+# define LNG_MIN 9223372036854775808U
 
 typedef struct	s_list
 {

@@ -6,17 +6,17 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 23:44:12 by mreniere          #+#    #+#             */
-/*   Updated: 2020/11/26 00:47:14 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/11/30 12:40:34 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	isoverflow(unsigned long long res, int pos)
+static int	isoverflow(unsigned long res, int pos)
 {
-	if (pos == 1 && res >= 9223372036854775808ULL)
+	if (pos == 1 && res > LNG_MAX)
 		return (-1);
-	if (res >= 9223372036854775809ULL)
+	if (res > LNG_MIN)
 		return (0);
 	return (1);
 }
