@@ -6,7 +6,7 @@
 /*   By: mreniere <mreniere@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:27:59 by mreniere          #+#    #+#             */
-/*   Updated: 2020/12/02 15:58:46 by mreniere         ###   ########.fr       */
+/*   Updated: 2020/12/02 16:00:43 by mreniere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (ft_islower(c))
 		return ((c - 'a') + 'A');
 	return (c);
 }
